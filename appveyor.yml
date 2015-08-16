@@ -1,5 +1,6 @@
 install:
   - ps: Start-FileDownload 'https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-5.1.2.zip'
+  - cmd: unzip sonarqube-5.1.2.zip -d C:\tmp\
 
 build_script:
   - gradlew clean build
