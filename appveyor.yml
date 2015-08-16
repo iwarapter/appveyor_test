@@ -1,6 +1,12 @@
 install:
   - ps: Start-FileDownload 'https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-5.1.2.zip'
+  - ps: Start-FileDownload 'http://repo1.maven.org/maven2/org/codehaus/sonar/runner/sonar-runner-dist/2.4/sonar-runner-dist-2.4.zip'
   - cmd: unzip sonarqube-5.1.2.zip -d C:\tmp\
+  - cmd: unzip sonar-runner-dist-2.4.zip -d C:\tmp\
+  - cmd: set PATH=C:\tmp\sonar-runner-2.4\bin;%PATH%
+  - cmd: C:\tmp\sonarqube-5.1.2\bin\windows-x86-64\StartSonar.bat
+  - cmd: git clone https://github.com/iwarapter/sonar-puppet.git C:\projects\
+  - cmd: cd C:\projects\sonar-puppet
 
 build_script:
   - gradlew clean build
