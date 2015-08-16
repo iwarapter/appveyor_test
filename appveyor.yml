@@ -4,9 +4,9 @@ install:
   - cmd: unzip sonarqube-5.1.2.zip -d C:\tmp\
   - cmd: unzip sonar-runner-dist-2.4.zip -d C:\tmp\
   - cmd: set PATH=C:\tmp\sonar-runner-2.4\bin;%PATH%
-  - cmd: start C:\tmp\sonarqube-5.1.2\bin\windows-x86-64\StartSonar.bat
   - cmd: git clone https://github.com/iwarapter/sonar-puppet.git C:\projects\
   - cmd: cd C:\projects\sonar-puppet
+  - cmd: gem install puppet-lint
 
 build_script:
   - gradlew clean build
